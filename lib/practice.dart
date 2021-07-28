@@ -26,7 +26,8 @@ class _PracticeState extends State<Practice> {
           title: Text('User Profile',),
           centerTitle: true,
           backgroundColor: Colors.indigo,
-        ),
+          ),
+        drawer: Drawer(),
         body: Container(
           color: Color(0xFFEEEEEE),
           child: Padding(
