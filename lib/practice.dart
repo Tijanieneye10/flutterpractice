@@ -27,7 +27,66 @@ class _PracticeState extends State<Practice> {
           centerTitle: true,
           backgroundColor: Colors.indigo,
           ),
-        drawer: Drawer(),
+        drawer: Drawer(
+          elevation: 1.0,
+          child: Container(
+            child: Column(
+              children: [
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        // image: DecorationImage(
+                        //  image: AssetImage("assets/background.jpg"),
+                        //   fit: BoxFit.fill,
+                        // ),
+                        color: Colors.indigo,
+                      ),
+                      height: 100.0,
+                    ),
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: -30,
+                      height: 100.0,
+                      child: Center(
+                        child: Container(
+                          width: 100,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.8)
+                              ),
+                            ],
+                            color: Colors.indigo,
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(
+                              width: 3.0,
+                              color: Colors.indigo,
+                            ),
+                            image: DecorationImage(
+                                image: AssetImage("assets/profile.jpg"),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 35,),
+                Text('Usman Tijani Eneye', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),),
+                Text('Mobile Engineer', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo),),
+                Divider(thickness: 1,),
+                Expanded(child: Container(
+                  child: buildListView(),
+                ),)
+
+              ],
+            ),
+
+          ),
+        ),
         body: Container(
           color: Color(0xFFEEEEEE),
           child: Padding(
@@ -311,5 +370,59 @@ class _PracticeState extends State<Practice> {
         ),
       ),
     );
+  }
+
+  ListView buildListView() {
+    return ListView(
+                  children: <Widget>[
+                    Container(
+                      child: ListTile(
+                          leading: Container(
+                            height: double.infinity,
+                            child: CircleAvatar(
+                              radius: 15.0,
+                              backgroundColor: Colors.indigo,
+                              child: Icon(Icons.add, color: Colors.white,),
+                            ),
+                          ),
+                          horizontalTitleGap : -3.0,
+                          title: Text('Add User', style:TextStyle(fontWeight: FontWeight.bold,),),
+                          subtitle: Text("Add a new user "),
+                      ),
+                    ),
+                    Divider(),
+                    Container(
+                      child: ListTile(
+                        leading: Container(
+                          height: double.infinity,
+                          child: CircleAvatar(
+                            radius: 15.0,
+                            backgroundColor: Colors.pinkAccent,
+                            child: Icon(Icons.message, color: Colors.white,),
+                          ),
+                        ),
+                        horizontalTitleGap : -3.0,
+                        title: Text('Message', style:TextStyle(fontWeight: FontWeight.bold,),),
+                        subtitle: Text("Send message to user "),
+                      ),
+                    ),
+                    Divider(),
+                    Container(
+                      child: ListTile(
+                        leading: Container(
+                          height: double.infinity,
+                          child: CircleAvatar(
+                            radius: 15.0,
+                            backgroundColor: Colors.lightBlue,
+                            child: Icon(Icons.notifications, color: Colors.white,),
+                          ),
+                        ),
+                        horizontalTitleGap : -3.0,
+                        title: Text('Notifications', style:TextStyle(fontWeight: FontWeight.bold,),),
+                        subtitle: Text("Check your notifications here"),
+                      ),
+                    ),
+                  ],
+                );
   }
 }
